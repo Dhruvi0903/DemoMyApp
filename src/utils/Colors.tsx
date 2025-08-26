@@ -22,4 +22,8 @@ export const Colors = {
   gradientBeige: ['#FFF2C9', '#F8E6C7', '#FFFFFF', '#FFFFFF', '#FFFFFF', '#FFFFFF', '#FFFFFF', '#FFFFFF', '#FFFFFF', '#FFFFFF', '#FFFFFF', '#FFFFFF', '#FFFFFF'],
   gradientPink: ['#FFF0F0', '#FFE6E6'],
   transparent: 'transparent',
+  timeColor: '#BC8C80',
+  timeColor2: '#E3D5C9',
+  timeColor3: '#F5F5F5',
+  darkGray1: '#333333',
 };
