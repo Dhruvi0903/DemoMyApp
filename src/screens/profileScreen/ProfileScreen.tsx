@@ -14,31 +14,35 @@ import { Dimensions } from 'react-native';
 import styles from './ProfileScreen.style';
 import images from '../../assets';
 import Scaling from '../../utils/Scaling';
-import { fetchProfile } from '../../redux/actions/profile.actions';
-import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 import { cmsVerbiage } from '../../cmsData/cmsVerbiage';
 import { profileAnalysisData } from './ProfileScreen.const';
 
 const screenWidth = Dimensions.get('window').width;
 
 const ProfileScreen = ({ navigation }: { navigation: any }) => {
-  const dispatch = useAppDispatch();
-  const { data, loading, error } = useAppSelector(state => state.profile);
+  const data = profileAnalysisData;
+  const loading = false;
+  const error = null;
   const MyProfileData = profileAnalysisData?.myProfile?.mingleAnalysis;
   const ProfileAnalysisData = MyProfileData?.profileAnalysis;
   const ConversationAnalysis = MyProfileData?.conversationAnalysis;
-
-  console.log('data.profile...', data, loading, error);
-
-  useEffect(() => {
-    dispatch(fetchProfile());
-  }, [dispatch]);
 
   const lineChartData = {
     labels: ['', '', '', '', '', ''],
     datasets: [
       {
-        data: [20, 45, 28, 80, 99, 43],
+        data: [0,90,80, 45, 28, 80, 99, 0],
+        color: (opacity = 1) => `rgba(212, 184, 166, ${opacity})`,
+        strokeWidth: 2,
+      },
+    ],
+  };
+
+  const lineChartData1 = {
+    labels: ['', '', '', '', '', ''],
+    datasets: [
+      {
+        data: [0,90,80, 20, 30, 40, 99, 0],
         color: (opacity = 1) => `rgba(212, 184, 166, ${opacity})`,
         strokeWidth: 2,
       },
@@ -131,7 +135,7 @@ const ProfileScreen = ({ navigation }: { navigation: any }) => {
                 <LineChart
                   data={lineChartData}
                   width={screenWidth * 0.4}
-                  height={100}
+                  height={70}
                   chartConfig={chartConfig}
                   bezier
                   withDots={false}
@@ -163,9 +167,9 @@ const ProfileScreen = ({ navigation }: { navigation: any }) => {
               </View>
               <View style={styles.chartContainer}>
                 <LineChart
-                  data={lineChartData}
-                  width={screenWidth * 0.4}
-                  height={100}
+                  data={lineChartData1}
+                  width={screenWidth * 0.39}
+                  height={70}
                   chartConfig={{
                     ...chartConfig,
                     color: (opacity = 1) => `rgba(255, 192, 203, ${opacity})`,
@@ -198,7 +202,7 @@ const ProfileScreen = ({ navigation }: { navigation: any }) => {
                 <LineChart
                   data={lineChartData}
                   width={screenWidth * 0.4}
-                  height={100}
+                  height={70}
                   chartConfig={chartConfig}
                   bezier
                   withDots={false}
@@ -264,6 +268,7 @@ const ProfileScreen = ({ navigation }: { navigation: any }) => {
               fromZero
               withInnerLines={false}
               showValuesOnTopOfBars={false}
+              withHorizontalLabels={false}
               style={{}}
             />
           </View>

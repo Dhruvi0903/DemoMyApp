@@ -158,6 +158,9 @@ export default StyleSheet.create({
   },
   chartContainer: {
     width: '100%',
+    marginLeft: 5,
+    borderBottomLeftRadius: Scaling.ms(8),
+    borderBottomRightRadius: Scaling.ms(8),
   },
   completeProfile: {
     flexDirection: 'row',
@@ -211,12 +214,12 @@ export default StyleSheet.create({
     color: '#999',
   },
   barChartContainer: {
-    // marginLeft: -20,
     marginBottom: 10,
   },
   trendContainer: {
     flexDirection: 'row',
     alignItems: 'center',
+    marginBottom: 10,
   },
   trendValue: {
     fontSize: 20,
