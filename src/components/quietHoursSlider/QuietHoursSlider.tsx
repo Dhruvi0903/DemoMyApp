@@ -5,6 +5,7 @@ import { styles } from './QuietHoursSlider.style';
 import Svg from 'react-native-svg';
 import { BellSilentIcon } from '../../assets/svgIcon/BellSilentIcon';
 import { cmsVerbiage } from '../../cmsData/cmsVerbiage';
+import { Colors } from '../../utils/Colors';
 
 interface QuietHoursSliderProps {
   onQuietHoursChange?: (startHour: number, endHour: number) => void;
@@ -51,7 +52,7 @@ const QuietHoursSlider: React.FC<QuietHoursSliderProps> = ({
   };
 
   return (
-    <View style={styles.container}>
+    <View style={styles.container} testID="quiet-hours-slider">
       <View style={styles.sliderContainer}>
         <CircularSlider
           startAngle={startAngle}
@@ -60,11 +61,11 @@ const QuietHoursSlider: React.FC<QuietHoursSliderProps> = ({
           segments={75}
           strokeWidth={70}
           radius={120}
-          gradientColorFrom="#BC8C80"
-          gradientColorTo="#E3D5C9"
-          bgCircleColor="#F5F5F5"
+          gradientColorFrom={Colors.timeColor}
+          gradientColorTo={Colors.timeColor2}
+          bgCircleColor={Colors.timeColor3}
           showClockFace={true}
-          clockFaceColor="#666666"
+          clockFaceColor={Colors.darkGray}
         />
         <View style={styles.centerText}>
           <Text style={styles.durationText}>{endHour - startHour}h</Text>
@@ -75,7 +76,7 @@ const QuietHoursSlider: React.FC<QuietHoursSliderProps> = ({
       <View style={styles.quietHoursContainer}>
         <View style={{ flexDirection: 'row', alignItems: 'center' }}>
           <Svg width={22} height={22}>
-            <BellSilentIcon color={'#BC8C80'}/>
+            <BellSilentIcon color={Colors.timeColor}/>
           </Svg>
           <Text style={styles.quietHoursText}>{cmsVerbiage?.notification_quiet_hours}</Text>
         </View>

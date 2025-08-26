@@ -1,6 +1,6 @@
 import { StyleSheet, Dimensions } from 'react-native';
+import { Colors } from '../../utils/Colors';
 
-const { width } = Dimensions.get('window');
 export const HANDLE_SIZE = 44;
 
 export const styles = StyleSheet.create({
@@ -8,7 +8,7 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     padding: 20,
-    backgroundColor: '#FFFFFF',
+    backgroundColor: Colors.white,
   },
   sliderContainer: {
     position: 'relative',
@@ -25,12 +25,10 @@ export const styles = StyleSheet.create({
   bellIcon: {
     width: 24,
     height: 24,
-    // tintColor: '#FFFFFF',
   },
   bellSilentIcon: {
     width: 24,
     height: 24,
-    // tintColor: '#FFFFFF',
   },
   centerText: {
     position: 'absolute',
@@ -44,12 +42,12 @@ export const styles = StyleSheet.create({
   durationText: {
     fontSize: 20,
     fontWeight: '700',
-    color: '#333333',
+    color: Colors.darkGray1,
     letterSpacing: -1,
   },
   workDurationText: {
     fontSize: 12,
-    color: '#BC8C80',
+    color: Colors.timeColor,
     marginTop: 4,
     fontWeight: '400',
   },
@@ -59,7 +57,7 @@ export const styles = StyleSheet.create({
   },
   quietHoursText: {
     fontSize: 14,
-    color: '#BC8C80',
+    color: Colors.timeColor,
     fontWeight: '500',
     marginLeft: 8,
   },
@@ -70,7 +68,7 @@ export const styles = StyleSheet.create({
   quietHoursTime: {
     fontSize: 20,
     fontWeight: '500',
-    color: '#333333',
+    color: Colors.darkGray1,
     letterSpacing: -0.5,
   },
 });
