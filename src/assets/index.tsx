@@ -1,3 +1,5 @@
+export { BackArrowIcon } from './svgIcon/BackArrowIcon';
+
 const images = {
     chevronLeftIcon: require('./chevronLeftIcon.png'),
     chevronRightIcon: require('./chevronRightIcon.png'),

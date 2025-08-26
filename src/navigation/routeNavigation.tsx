@@ -6,7 +6,7 @@ const Stack = createNativeStackNavigator();
 
 export default function RouteNavigation() {
   return (
-    <Stack.Navigator initialRouteName="Profile">
+    <Stack.Navigator initialRouteName="Notification">
       <Stack.Screen
         name="Notification"
         component={NotificationScreen}

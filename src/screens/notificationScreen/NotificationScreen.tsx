@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import {
   View,
   Text,
@@ -7,6 +7,8 @@ import {
   Image,
   StatusBar,
   ScrollView,
+  BackHandler,
+  SafeAreaView,
 } from 'react-native';
 import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../../navigation/types';
@@ -30,6 +32,18 @@ const NotificationScreen: React.FC<Props> = ({ navigation }) => {
   const [selectedDays, setSelectedDays] = useState<number[]>([]);
   const [isEveryday, setIsEveryday] = useState(false);
 
+  useEffect(() => {
+    const backHandler = BackHandler.addEventListener(
+      'hardwareBackPress',
+      () => {
+        BackHandler.exitApp();
+        return true;
+      },
+    );
+
+    return () => backHandler.remove();
+  }, []);
+
   const days = ['M', 'T', 'W', 'T', 'F', 'S', 'S'];
 
   const toggleDay = (index: number) => {
@@ -50,18 +64,26 @@ const NotificationScreen: React.FC<Props> = ({ navigation }) => {
   };
 
   return (
-    <View style={styles.container}>
-      <StatusBar barStyle={'light-content'} />
+    <SafeAreaView style={styles.container}>
+      <StatusBar hidden={true} />
       <View style={styles.header}>
-        <TouchableOpacity onPress={() => navigation.goBack()}>
+        <TouchableOpacity
+          testID="back-button"
+          onPress={() => BackHandler.exitApp()}
+        >
           <Image source={images.chevronLeftIcon} style={styles.backButton} />
         </TouchableOpacity>
-        <Text style={styles.headerTitle}>{cmsVerbiage?.notification_title}</Text>
+        <Text style={styles.headerTitle}>
+          {cmsVerbiage?.notification_title}
+        </Text>
       </View>
       <View style={styles.quietHoursContainer}>
         <View style={styles.quietHoursHeader}>
-          <Text style={styles.quietHoursTitle}>{cmsVerbiage?.notification_quiet_hours_title}</Text>
+          <Text style={styles.quietHoursTitle}>
+            {cmsVerbiage?.notification_quiet_hours_title}
+          </Text>
           <Switch
+            testID="quiet-hours-switch"
             value={isEnabled}
             onValueChange={setIsEnabled}
             circleSize={24}
@@ -83,8 +105,11 @@ const NotificationScreen: React.FC<Props> = ({ navigation }) => {
       <ScrollView>
         <View style={styles.daysContainer}>
           <View style={styles.daysHeader}>
-            <Text style={styles.daysTitle}>{cmsVerbiage?.notification_choose_days}</Text>
+            <Text style={styles.daysTitle}>
+              {cmsVerbiage?.notification_choose_days}
+            </Text>
             <TouchableOpacity
+              testID="everyday-button"
               onPress={toggleEveryday}
               style={styles.everydayButton}
             >
@@ -96,12 +121,15 @@ const NotificationScreen: React.FC<Props> = ({ navigation }) => {
               ) : (
                 <Image source={images.checkBox} style={styles.uncheckIcon} />
               )}
-              <Text style={styles.everydayText}>{cmsVerbiage?.notification_everyday}</Text>
+              <Text style={styles.everydayText}>
+                {cmsVerbiage?.notification_everyday}
+              </Text>
             </TouchableOpacity>
           </View>
           <View style={styles.daysGrid}>
             {days.map((day, index) => (
               <TouchableOpacity
+                testID="day-button"
                 key={index}
                 onPress={() => toggleDay(index)}
                 style={[
@@ -123,17 +151,20 @@ const NotificationScreen: React.FC<Props> = ({ navigation }) => {
         </View>
 
         <View style={styles.timePickerContainer}>
-          <QuietHoursSlider
-            onQuietHoursChange={(startHour, endHour) => {}}
-          />
+          <QuietHoursSlider onQuietHoursChange={(startHour, endHour) => {}} />
         </View>
       </ScrollView>
       <View style={styles.BottomButtonContainer}>
-          <TouchableOpacity style={styles.applyButton} onPress={() => navigation.navigate('Profile')}>
-            <Text style={styles.applyButtonText}>{cmsVerbiage?.notification_apply_quiet_hours}</Text>
-          </TouchableOpacity>
-        </View>
-    </View>
+        <TouchableOpacity
+          style={styles.applyButton}
+          onPress={() => navigation.navigate('Profile')}
+        >
+          <Text style={styles.applyButtonText}>
+            {cmsVerbiage?.notification_apply_quiet_hours}
+          </Text>
+        </TouchableOpacity>
+      </View>
+    </SafeAreaView>
   );
 };
 

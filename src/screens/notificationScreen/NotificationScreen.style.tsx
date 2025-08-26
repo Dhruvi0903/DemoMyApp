@@ -1,12 +1,13 @@
 import {StyleSheet, Dimensions} from 'react-native';
 import Scaling from '../../utils/Scaling';
+import { Colors } from '../../utils/Colors';
 
 const {width} = Dimensions.get('window');
 
 export default StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#FFFFFF',
+    backgroundColor: Colors.white,
   },
   header: {
     flexDirection: 'row',
@@ -18,7 +19,6 @@ export default StyleSheet.create({
   backButton: {
     height: Scaling.ms(24),
     width: Scaling.ms(24),
-    marginRight: Scaling.hs(10),
   },
   headerTitle: {
     flex: 1,
@@ -29,8 +29,8 @@ export default StyleSheet.create({
   quietHoursContainer: {
     paddingHorizontal: Scaling.hs(20),
     paddingVertical: Scaling.vs(15),
-    backgroundColor: '#FFFFFF',
-    shadowColor: '#000',
+    backgroundColor: Colors.white,
+    shadowColor: Colors.black,
     shadowOffset: {
       width: 0,
       height: 10,
@@ -48,9 +48,9 @@ export default StyleSheet.create({
     },
     shadowRadius: Scaling.vs(8),
     shadowOpacity: Scaling.hs(1),
-    shadowColor: '#00000014',
+    shadowColor: Colors.lightGray3,
     borderWidth: Scaling.hs(0.5),
-    borderColor: '#00000014',
+    borderColor: Colors.lightGray3,
     borderStyle: 'solid',
     opacity: 1
   },
@@ -66,7 +66,7 @@ export default StyleSheet.create({
   },
   quietHoursDescription: {
     fontSize: 12,
-    color: '#666666',
+    color: Colors.darkGray,
     // lineHeight: 20,
     width: '78%',
   },
@@ -82,7 +82,7 @@ export default StyleSheet.create({
   },
   daysTitle: {
     fontSize: 16,
-    color: '#666666',
+    color: Colors.darkGray,
   },
   everydayButton: {
     flexDirection: 'row',
@@ -91,7 +91,7 @@ export default StyleSheet.create({
   },
   everydayText: {
     fontSize: 14,
-    color: '#000',
+    color: Colors.black,
   },
   daysGrid: {
     flexDirection: 'row',
@@ -102,19 +102,19 @@ export default StyleSheet.create({
     width: Scaling.ms(40),
     height: Scaling.ms(40),
     borderRadius: 6,
-    backgroundColor: '#F5F5F5',
+    backgroundColor: Colors.lightGray4,
     justifyContent: 'center',
     alignItems: 'center',
   },
   selectedDayButton: {
-    backgroundColor: '#E3D5C9',
+    backgroundColor: Colors.lightGray5,
   },
   dayText: {
     fontSize: 14,
-    color: '#000',
+    color: Colors.black,
   },
   selectedDayText: {
-    color: '#000000',
+    color: Colors.black,
   },
   timePickerContainer: {
     alignItems: 'center',
@@ -138,7 +138,7 @@ export default StyleSheet.create({
   },
   timeLabel: {
     fontSize: 14,
-    color: '#666666',
+    color: Colors.darkGray,
   },
   quietHoursTime: {
     alignItems: 'center',
@@ -146,7 +146,7 @@ export default StyleSheet.create({
   },
   quietHoursTimeText: {
     fontSize: 14,
-    color: '#666666',
+    color: Colors.darkGray,
     marginBottom: Scaling.vs(5),
   },
   quietHoursTimeValue: {
@@ -154,7 +154,7 @@ export default StyleSheet.create({
     fontWeight: '600',
   },
   applyButton: {
-    backgroundColor: '#E3D5C9',
+    backgroundColor: Colors.lightGray5,
     // marginHorizontal: Scaling.hs(20),
     padding: Scaling.ms(15),
     borderRadius: 10,
@@ -172,9 +172,9 @@ export default StyleSheet.create({
     // bottom: Scaling.vs(30),
     // left: 0,
     // right: 0,
-    backgroundColor: '#FFFFFF',
+    backgroundColor: Colors.white,
     borderTopWidth: Scaling.hs(1),
-    borderTopColor: '#00000014',
+    borderTopColor: Colors.lightGray3,
     borderStyle: 'solid',
     opacity: 1,
     paddingHorizontal: Scaling.hs(20),
@@ -183,7 +183,7 @@ export default StyleSheet.create({
   applyButtonText: {
     fontSize: 16,
     fontWeight: '600',
-    color: '#000000',
+    color: Colors.black,
   },
   checkIcon: {
     width: Scaling.ms(18),

@@ -221,8 +221,8 @@ const CircularSlider: React.FC<CircularSliderProps> = ({
   );
 
   return (
-    <View style={{ width: containerWidth, height: containerWidth }}>
-      <Svg height={containerWidth} width={containerWidth} ref={circleRef}>
+    <View style={{ width: containerWidth, height: containerWidth }} testID="circular-slider">
+      <Svg height={containerWidth} width={containerWidth} ref={circleRef} testID="circular-slider-svg">
         <Defs>
           {range(segments).map(i => {
             const { fromX, fromY, toX, toY } = calculateArcCircle(
@@ -266,7 +266,7 @@ const CircularSlider: React.FC<CircularSliderProps> = ({
             stroke={bgCircleColor}
           />
           {showClockFace && (
-            <ClockFace r={radius - strokeWidth / 2} stroke={clockFaceColor} />
+            <ClockFace r={radius - strokeWidth / 2} stroke={clockFaceColor} testID="clock-face" />
           )}
           {/* Gradient Arc */}
           {range(segments).map(i => {
@@ -315,6 +315,7 @@ const CircularSlider: React.FC<CircularSliderProps> = ({
             fill={gradientColorFrom}
             transform={`translate(${stop.toX}, ${stop.toY})`}
             {...wakePanResponder.panHandlers}
+            testID="end-handle"
           >
             <Circle
               r={(strokeWidth - 1) / 2.7}
@@ -331,6 +332,7 @@ const CircularSlider: React.FC<CircularSliderProps> = ({
             fill={gradientColorTo}
             transform={`translate(${start.fromX}, ${start.fromY})`}
             {...sleepPanResponder.panHandlers}
+            testID="start-handle"
           >
             <Circle
               r={(strokeWidth - 1) / 2.7}

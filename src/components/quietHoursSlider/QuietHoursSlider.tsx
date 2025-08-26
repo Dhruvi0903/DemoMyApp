@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, Image } from 'react-native';
 import CircularSlider from '../sliderCompoent/CircularSlider';
-import images from '../../assets';
 import { styles } from './QuietHoursSlider.style';
 import Svg from 'react-native-svg';
 import { BellSilentIcon } from '../../assets/svgIcon/BellSilentIcon';
