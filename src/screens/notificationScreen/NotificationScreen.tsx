@@ -115,11 +115,11 @@ const NotificationScreen: React.FC<Props> = ({ navigation }) => {
             >
               {isEveryday ? (
                 <Image
-                  source={images.checkBoxSelected}
+                  source={images.checkedIcon}
                   style={styles.checkIcon}
                 />
               ) : (
-                <Image source={images.checkBox} style={styles.uncheckIcon} />
+                <Image source={images.unCheckedIcon} style={styles.uncheckIcon} />
               )}
               <Text style={styles.everydayText}>
                 {cmsVerbiage?.notification_everyday}

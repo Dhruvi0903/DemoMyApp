@@ -177,8 +177,8 @@ export default StyleSheet.create({
     color: Colors.black,
   },
   checkIcon: {
-    width: Scaling.ms(18),
-    height: Scaling.ms(18),
+    width: Scaling.ms(17),
+    height: Scaling.ms(17),
     marginRight: Scaling.hs(3),
   },
   uncheckIcon: {

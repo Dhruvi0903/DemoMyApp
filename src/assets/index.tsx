@@ -3,9 +3,9 @@ export { BackArrowIcon } from './svgIcon/BackArrowIcon';
 const images = {
     chevronLeftIcon: require('./chevronLeftIcon.png'),
     dropDownIcon: require('./dropDownIcon.png'),
-    checkBox: require('./checkBox.png'),
-    checkBoxSelected: require('./checkBoxSelected.png'),
+    unCheckedIcon: require('./checkBox.png'),
     rightIcon: require('./rightIcon.png'),
+    checkedIcon: require('./checkedIcon.png'),
 }
 
 export default images;
