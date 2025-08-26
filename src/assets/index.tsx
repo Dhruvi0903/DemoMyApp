@@ -5,7 +5,6 @@ const images = {
     dropDownIcon: require('./dropDownIcon.png'),
     unCheckedIcon: require('./checkBox.png'),
     rightIcon: require('./rightIcon.png'),
-    checkedIcon: require('./checkedIcon.png'),
 }
 
 export default images;

@@ -17,6 +17,7 @@ import { Switch } from 'react-native-switch';
 import images from '../../assets';
 import QuietHoursSlider from '../../components/quietHoursSlider/QuietHoursSlider';
 import { cmsVerbiage } from '../../cmsData/cmsVerbiage';
+import CheckedIcon from '../../assets/svgIcon/CheckedIcon';
 
 type NotificationScreenNavigationProp = NativeStackNavigationProp<
   RootStackParamList,
@@ -114,10 +115,7 @@ const NotificationScreen: React.FC<Props> = ({ navigation }) => {
               style={styles.everydayButton}
             >
               {isEveryday ? (
-                <Image
-                  source={images.checkedIcon}
-                  style={styles.checkIcon}
-                />
+                <CheckedIcon />
               ) : (
                 <Image source={images.unCheckedIcon} style={styles.uncheckIcon} />
               )}
